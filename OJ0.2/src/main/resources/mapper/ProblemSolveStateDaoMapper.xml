@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.otime.dao.ProblemSolveStateDao">
+<!--private User user;
+	private Problem problem;
+	private Integer submitRecordId;
+	private String state;
+	private Date date; -->
+	<resultMap type="User" id="BaseUserResult">
+		<id column="user_pk" property="id"/>
+		<result column="nickname" property="nickname"/>
+		<result column="email" property="email"/>
+		<result column="password" property="password"/>
+	</resultMap>
+	
+	<resultMap type="Problem" id="BaseProblemResult">
+		<id column="problem_pk" property="id"/>
+		<result column="title" property="title"/>
+		<result column="description" property="description"/>
+		<result column="inputFormat" property="inputFormat"/>
+		<result column="outputFormat" property="outputFormat"/>
+		<result column="timeLimit" property="timeLimit"/>
+		<result column="memoryLimit" property="memoryLimit"/>
+		<result column="totalSubmissions" property="totalSubmissions"/>
+		<result column="acceptSubmissions" property="acceptSubmissions"/>
+	</resultMap>
+	
+	<resultMap type="ProblemSolveState" id="BaseProblemSolveStateResult">
+		<result column="submitRecord_id" property="submitRecordId" />
+		<result column="state" property="state" />
+		<result column="stateDate" property="date" />
+		<association property="user" resultMap="BaseUserResult"/>
+		<association property="problem" resultMap="BaseProblemResult"/>
+	</resultMap>
+
+	<!-- ProblemSolveState selectProblemSolveState(Integer userId, Integer problemId); -->
+	<select id="selectProblemSolveState" resultMap="BaseProblemSolveStateResult">
+		SELECT
+			submitRecord_id,
+			state,
+			stateDate,
+			u.id as user_pk,
+			nickname,
+			email,
+			password,
+			p.id as problem_pk,
+			title,
+			description,
+			inputFormat,
+			outputFormat,
+			timeLimit, 
+			memoryLimit, 
+			totalSubmissions,
+			acceptSubmissions
+		FROM
+			OJ_PROBLEMSOLVESTATE s
+			LEFT OUTER JOIN OJ_USER u ON s.USER_ID = u.ID
+			LEFT OUTER JOIN OJ_PROBLEM p ON s.PROBLEM_ID = p.ID
+		WHERE
+			user_id=#{param1} and problem_id=#{param2}
+	</select>	
+	
+	<!-- List<ProblemSolveState> selectProblemSolveStatesOfUser(Integer userId); -->
+	<select id="selectProblemSolveStatesOfUser" resultMap="BaseProblemSolveStateResult">
+		SELECT
+			submitRecord_id,
+			state,
+			stateDate,
+			u.id as user_pk,
+			nickname,
+			email,
+			password,
+			p.id as problem_pk,
+			title,
+			description,
+			inputFormat,
+			outputFormat,
+			timeLimit, 
+			memoryLimit, 
+			totalSubmissions,
+			acceptSubmissions
+		FROM
+			OJ_PROBLEMSOLVESTATE s
+			LEFT OUTER JOIN OJ_USER u ON s.USER_ID = u.ID
+			LEFT OUTER JOIN OJ_PROBLEM p ON s.PROBLEM_ID = p.ID
+		WHERE
+			user_id=#{param1}
+	</select>
+	
+	<!-- Integer insertProblemSolveState(ProblemSolveState problemSolveState); -->
+	<insert id="insertProblemSolveState" parameterType="ProblemSolveState">
+		INSERT INTO 
+		OJ_PROBLEMSOLVESTATE
+			(user_id, problem_id, submitRecord_id, state, stateDate)
+		VALUES
+			(#{user.id}, #{problem.id}, #{submitRecordId}, #{state}, #{date})
+		
+	</insert>
+
+	<!-- void updateProblemSolveState(ProblemSolveState problemSolveState); -->
+	<update id="updateProblemSolveState" parameterType="ProblemSolveState">
+		UPDATE 
+			OJ_PROBLEMSOLVESTATE
+		SET 
+			state=#{state}, 
+			submitRecord_id=#{submitRecordId},
+			stateDate=#{date}
+		WHERE 
+			user_id=#{user.id} and problem_id=#{problem.id}
+	</update>
+</mapper>

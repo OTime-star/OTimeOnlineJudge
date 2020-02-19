@@ -1,0 +1,84 @@
+2019-11-05 16:17:37,679 DEBUG [main] (StandardCPlusPlusCodeJudger.java:69) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 16:17:37,912  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) - D:/OnlineJudgeFile/SourceFile/Hello.cpp: In function 'int main()':
+2019-11-05 16:17:37,913  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) - D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: error: 'fa' was not declared in this scope
+2019-11-05 16:17:37,913  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) -      cout << a + b << fa;
+2019-11-05 16:17:37,913  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) -                       ^~
+2019-11-05 16:17:37,913  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) - D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: note: suggested alternative: 'a'
+2019-11-05 16:17:37,915  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) -      cout << a + b << fa;
+2019-11-05 16:17:37,915  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) -                       ^~
+2019-11-05 16:17:37,915  INFO [Thread-1] (StandardCPlusPlusCodeJudger.java:92) -                       a
+2019-11-05 16:17:37,944 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:95) - checkErrorMessage() end...
+2019-11-05 16:17:37,944 DEBUG [Thread-0] (StandardCPlusPlusCodeJudger.java:111) - checkOutputMessage() end...
+2019-11-05 16:17:37,945 DEBUG [main] (StandardCPlusPlusCodeJudger.java:181) - complieFile:Hello
+2019-11-05 16:17:37,946 DEBUG [main] (StandardCPlusPlusCodeJudger.java:124) - inputFilePath:D:/OnlineJudgeFile/InputFile/15729418579461.txt
+2019-11-05 16:17:37,946 DEBUG [main] (StandardCPlusPlusCodeJudger.java:125) - outputFilePath:D:/OnlineJudgeFile/OutputFile/15729418579461.txt
+2019-11-05 16:17:37,952 DEBUG [main] (StandardCPlusPlusCodeJudger.java:139) - start judge...
+2019-11-05 16:17:37,977 DEBUG [main] (StandardCPlusPlusCodeJudger.java:165) - compareResult(): outResult:20 ,resultData:20
+2019-11-05 16:17:37,979 DEBUG [main] (StandardCPlusPlusCodeJudger.java:187) - JudgeRecord [id=null, submitRecordId=null, executionTime=24, memoryCost=100, result=AC]
+2019-11-05 16:37:45,249 DEBUG [main] (StandardCPlusPlusCodeJudger.java:72) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 16:37:45,506 DEBUG [Thread-0] (StandardCPlusPlusCodeJudger.java:133) - checkOutputMessage() end...
+2019-11-05 16:37:45,507 DEBUG [main] (StandardCPlusPlusCodeJudger.java:115) - 
+2019-11-05 16:37:45,507 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) - D:/OnlineJudgeFile/SourceFile/Hello.cpp: In function 'int main()':
+2019-11-05 16:37:45,509 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) - D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: error: 'fa' was not declared in this scope
+2019-11-05 16:37:45,509 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) -      cout << a + b << fa;
+2019-11-05 16:37:45,509 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) -                       ^~
+2019-11-05 16:37:45,510 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) - D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: note: suggested alternative: 'a'
+2019-11-05 16:37:45,510 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) -      cout << a + b << fa;
+2019-11-05 16:37:45,510 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) -                       ^~
+2019-11-05 16:37:45,510 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:129) -                       a
+2019-11-05 16:37:45,510 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:133) - checkOutputMessage() end...
+2019-11-05 16:37:45,510 DEBUG [main] (StandardCPlusPlusCodeJudger.java:100) - D:/OnlineJudgeFile/SourceFile/Hello.cpp: In function 'int main()':D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: error: 'fa' was not declared in this scope     cout << a + b << fa;                      ^~D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: note: suggested alternative: 'a'     cout << a + b << fa;                      ^~                      a
+2019-11-05 16:37:45,510 DEBUG [main] (StandardCPlusPlusCodeJudger.java:202) - complieFile:Hello
+2019-11-05 16:37:45,511 DEBUG [main] (StandardCPlusPlusCodeJudger.java:145) - inputFilePath:D:/OnlineJudgeFile/InputFile/15729430655111.txt
+2019-11-05 16:37:45,511 DEBUG [main] (StandardCPlusPlusCodeJudger.java:146) - outputFilePath:D:/OnlineJudgeFile/OutputFile/15729430655111.txt
+2019-11-05 16:37:45,526 DEBUG [main] (StandardCPlusPlusCodeJudger.java:160) - start judge...
+2019-11-05 16:37:45,551 DEBUG [main] (StandardCPlusPlusCodeJudger.java:186) - compareResult(): outResult:20 ,resultData:20
+2019-11-05 16:37:45,551 DEBUG [main] (StandardCPlusPlusCodeJudger.java:208) - JudgeRecord [id=null, submitRecordId=null, executionTime=24, memoryCost=100, result=AC]
+2019-11-05 16:42:09,419 DEBUG [main] (StandardCPlusPlusCodeJudger.java:72) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 16:42:09,675 DEBUG [Thread-0] (StandardCPlusPlusCodeJudger.java:138) - checkOutputMessage() end...
+2019-11-05 16:42:09,675 DEBUG [main] (StandardCPlusPlusCodeJudger.java:116) - 
+2019-11-05 16:42:09,676 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) - D:/OnlineJudgeFile/SourceFile/Hello.cpp: In function 'int main()':
+2019-11-05 16:42:09,678 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) - D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: error: 'fa' was not declared in this scope
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) -      cout << a + b << fa;
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) -                       ^~
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) - D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: note: suggested alternative: 'a'
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) -      cout << a + b << fa;
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) -                       ^~
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:131) -                       a
+2019-11-05 16:42:09,679 DEBUG [Thread-1] (StandardCPlusPlusCodeJudger.java:138) - checkOutputMessage() end...
+2019-11-05 16:42:09,679 DEBUG [main] (StandardCPlusPlusCodeJudger.java:100) - D:/OnlineJudgeFile/SourceFile/Hello.cpp: In function 'int main()':
+D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: error: 'fa' was not declared in this scope
+     cout << a + b << fa;
+                      ^~
+D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: note: suggested alternative: 'a'
+     cout << a + b << fa;
+                      ^~
+                      a
+2019-11-05 16:42:09,679 DEBUG [main] (StandardCPlusPlusCodeJudger.java:207) - complieFile:Hello
+2019-11-05 16:42:09,680 DEBUG [main] (StandardCPlusPlusCodeJudger.java:150) - inputFilePath:D:/OnlineJudgeFile/InputFile/15729433296801.txt
+2019-11-05 16:42:09,680 DEBUG [main] (StandardCPlusPlusCodeJudger.java:151) - outputFilePath:D:/OnlineJudgeFile/OutputFile/15729433296801.txt
+2019-11-05 16:42:09,696 DEBUG [main] (StandardCPlusPlusCodeJudger.java:165) - start judge...
+2019-11-05 16:42:09,719 DEBUG [main] (StandardCPlusPlusCodeJudger.java:191) - compareResult(): outResult:20 ,resultData:20
+2019-11-05 16:42:09,719 DEBUG [main] (StandardCPlusPlusCodeJudger.java:213) - JudgeRecord [id=null, submitRecordId=null, executionTime=22, memoryCost=100, result=AC]
+2019-11-05 16:50:10,695 DEBUG [main] (StandardCPlusPlusCodeJudger.java:73) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 16:53:41,056 DEBUG [main] (StandardCPlusPlusCodeJudger.java:73) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 17:17:20,013  INFO [main] (StandardCPlusPlusCodeJudger.java:83) - D:/OnlineJudgeFile/SourceFile/Hello.cpp: In function 'int main()':
+D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: error: 'fa' was not declared in this scope
+     cout << a + b << fa;
+                      ^~
+D:/OnlineJudgeFile/SourceFile/Hello.cpp:7:22: note: suggested alternative: 'a'
+     cout << a + b << fa;
+                      ^~
+                      a
+2019-11-05 17:18:33,844 DEBUG [main] (StandardCPlusPlusCodeJudger.java:72) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 17:18:34,223 DEBUG [main] (StandardCPlusPlusCodeJudger.java:190) - complieFile:Hello
+2019-11-05 17:18:34,224 DEBUG [main] (StandardCPlusPlusCodeJudger.java:133) - inputFilePath:D:/OnlineJudgeFile/InputFile/15729455142241.txt
+2019-11-05 17:18:34,224 DEBUG [main] (StandardCPlusPlusCodeJudger.java:134) - outputFilePath:D:/OnlineJudgeFile/OutputFile/15729455142241.txt
+2019-11-05 17:18:34,249 DEBUG [main] (StandardCPlusPlusCodeJudger.java:148) - start judge...
+2019-11-05 17:18:35,254 DEBUG [main] (StandardCPlusPlusCodeJudger.java:196) - JudgeRecord [id=null, submitRecordId=null, executionTime=1002, memoryCost=100, result=TLE]
+2019-11-05 17:18:43,208 DEBUG [main] (StandardCPlusPlusCodeJudger.java:72) - ojbectCodeFilePath:D:/OnlineJudgeFile/ClassFile/Hello
+2019-11-05 17:18:43,597 DEBUG [main] (StandardCPlusPlusCodeJudger.java:190) - complieFile:Hello
+2019-11-05 17:18:43,598 DEBUG [main] (StandardCPlusPlusCodeJudger.java:133) - inputFilePath:D:/OnlineJudgeFile/InputFile/15729455235981.txt
+2019-11-05 17:18:43,598 DEBUG [main] (StandardCPlusPlusCodeJudger.java:134) - outputFilePath:D:/OnlineJudgeFile/OutputFile/15729455235981.txt
+2019-11-05 17:18:43,622 DEBUG [main] (StandardCPlusPlusCodeJudger.java:148) - start judge...
+2019-11-05 17:18:44,624 DEBUG [main] (StandardCPlusPlusCodeJudger.java:196) - JudgeRecord [id=null, submitRecordId=null, executionTime=1001, memoryCost=100, result=TLE]

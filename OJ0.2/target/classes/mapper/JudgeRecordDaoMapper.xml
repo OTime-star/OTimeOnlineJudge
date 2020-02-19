@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.otime.dao.JudgeRecordDao">
+
+	<resultMap type="JudgeRecord" id="BaseJudgeRecordResult">
+		<id column="judgeRecord_pk" property="id"/>
+		<result column="submitRecord_id" property="submitRecordId"/>
+		<result column="executionTime" property="executionTime"/>
+		<result column="memoryCost" property="memoryCost"/>
+		<result column="result" property="result"/>
+	</resultMap>
+	
+	<!-- public JudgeRecord getJudgeRecord(Integer id); -->		
+	<select id="getJudgeRecord" parameterType="int" resultMap="BaseJudgeRecordResult">
+		SELECT
+			id as judgeRecord_pk,
+			submitRecord_id,
+			executionTime,
+			memoryCost,
+			result
+		FROM
+			OJ_JUDGERECORD
+		WHERE
+			id=#{id}
+	</select>
+					
+	<!-- public List<JudgeRecord> getJudgeRecordsOfSubmitRecord(Integer submitRecordId); -->
+	<select id="getJudgeRecordsOfSubmitRecord" parameterType="int" resultMap="BaseJudgeRecordResult">
+		SELECT
+			id as judgeRecord_pk,
+			submitRecord_id,
+			executionTime,
+			memoryCost,
+			result
+		FROM
+			OJ_JUDGERECORD
+		WHERE
+			submitRecord_id=#{submitRecordId}
+	</select>
+	
+	<!-- public void addJudgeRecord(JudgeRecord judgeRecord); -->
+	<insert id="addJudgeRecord" parameterType="JudgeRecord">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			SELECT SEQ_OJ_JUDGERECORD.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO
+		OJ_JUDGERECORD(id,submitRecord_id,executionTime,memoryCost,result)
+		VALUES(#{id}, #{submitRecordId}, #{executionTime}, #{memoryCost}, #{result})
+	</insert>
+	
+	<!-- public void removeJudgeRecord(Integer id); -->
+	<!-- public void removeJudgeRecordsOfSubmitRecord(Integer submitRecordId); -->
+</mapper>

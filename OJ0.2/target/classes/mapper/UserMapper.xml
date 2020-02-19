@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.otime.dao.UserDao">
+
+    <!-- int insert(User user); -->
+	<insert id="insert" parameterType="User">
+		<selectKey keyProperty="id" resultType="Integer" order="BEFORE" >
+			SELECT SEQ_OJ_USER.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO 
+		OJ_USER(id, nickname, email, password) 
+		VALUES(#{id}, #{nickname}, #{email}, #{password})
+	</insert>
+	
+	
+    <!-- User selectByPrimaryKey(Integer id); -->
+    <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseUserResult">
+    	SELECT id as user_pk, nickname, email, password
+    	FROM OJ_USER
+    	WHERE id=#{id}
+    </select>
+    
+    <!-- User selectByEmail(String email); -->
+    <select id="selectByEmail" parameterType="String" resultMap="BaseUserResult">
+    	SELECT id as user_pk, nickname, email, password
+    	FROM OJ_USER
+    	WHERE email=#{email}
+    </select>
+    
+    <!-- User selectByNickname(String nickname); -->
+    <select id="selectByNickname" parameterType="String" resultMap="BaseUserResult">
+    	SELECT id as user_pk, nickname, email, password
+    	FROM OJ_USER
+    	WHERE nickname=#{nickname}
+    </select>
+    
+    <!-- List<User> selectAll(); -->
+	<select id="selectAll" resultMap="BaseUserResult">
+    	SELECT id as user_pk, nickname, email, password
+    	FROM OJ_USER
+    </select>
+
+    <!-- int updateByPrimaryKey(User user); -->
+    <update id="updateByPrimaryKey" parameterType="User">
+    	UPDATE OJ_USER
+    	SET nickname=#{nickname},
+    		password=#{password}
+    	WHERE id=#{id}
+    </update>
+    
+    <!-- int deleteByPrimaryKey(Integer id); -->
+    <delete id="deleteByPrimaryKey" parameterType="Integer">
+    	DELETE FROM OJ_USER
+    	WHERE id=#{id}
+    </delete>
+    
+    <!-- ResultMap -->
+    <resultMap type="User" id="BaseUserResult">
+		<id column="user_pk" property="id"/>
+		<result column="nickname" property="nickname"/>
+		<result column="email" property="email"/>
+		<result column="password" property="password"/>
+	</resultMap>
+</mapper>

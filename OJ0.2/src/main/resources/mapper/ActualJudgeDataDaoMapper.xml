@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.otime.dao.ActualJudgeDataDao">
+	<!-- void insert(JudgeData judgeData); -->
+	<insert id="insert" parameterType="JudgeData">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			SELECT SEQ_OJ_ACTUALJUDGEDATA.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO
+		OJ_ACTUALJUDGEDATA(id,problem_id,inputData,resultData)
+		VALUES(#{id}, #{problemId}, #{inputData}, #{resultData})
+	</insert>
+</mapper>

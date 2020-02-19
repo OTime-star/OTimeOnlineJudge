@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.otime.dao.ProblemDao">
+	<resultMap type="JudgeData" id="BaseSampleJudgeDataResult">
+		<id column="sampleJudgeData_pk" property="id"/>
+		<result column="problem_id" property="problemId"/>
+		<result column="inputData" property="inputData"/>
+		<result column="resultData" property="resultData"/>
+	</resultMap>
+	
+	<resultMap type="JudgeData" id="BaseActualJudgeDataResult">
+		<id column="actualJudgeData_pk" property="id"/>
+		<result column="problem_id" property="problemId"/>
+		<result column="inputData" property="inputData"/>
+		<result column="resultData" property="resultData"/>
+	</resultMap>
+
+	<resultMap type="Problem" id="BaseProblemResult">
+		<id column="problem_pk" property="id"/>
+		<result column="title" property="title"/>
+		<result column="description" property="description"/>
+		<result column="inputFormat" property="inputFormat"/>
+		<result column="outputFormat" property="outputFormat"/>
+		<result column="timeLimit" property="timeLimit"/>
+		<result column="memoryLimit" property="memoryLimit"/>
+		<result column="totalSubmissions" property="totalSubmissions"/>
+		<result column="acceptSubmissions" property="acceptSubmissions"/>
+	</resultMap>
+	
+	<resultMap type="Problem" id="ProblemWithSampleJudgeDataResult" extends="BaseProblemResult">
+		<collection property="sampleJudgeDataList" resultMap="BaseSampleJudgeDataResult"></collection>
+	</resultMap>
+	<resultMap type="Problem" id="ProblemWithActualJudgeDataResult" extends="BaseProblemResult">
+		<collection property="actualJudgeDataList" resultMap="BaseActualJudgeDataResult"></collection>
+	</resultMap>
+	
+	
+	<!-- public Problem getProblem(Integer id); -->
+	<select id="getProblem" parameterType="int" resultMap="BaseProblemResult">
+		SELECT 
+			id as problem_pk,title,description,inputFormat,outputFormat,
+			timeLimit, memoryLimit, totalSubmissions,acceptSubmissions
+		FROM 
+			OJ_PROBLEM 
+		WHERE
+			OJ_PROBLEM.id=#{id}
+	</select>
+	
+	<!-- public Problem getProblemWithSampleJudgeData(Integer id); -->
+	<select id="getProblemWithSampleJudgeData" parameterType="int" resultMap="ProblemWithSampleJudgeDataResult">
+		SELECT 
+			p.id as problem_pk,title,description,inputFormat,outputFormat,
+			timeLimit, memoryLimit, totalSubmissions,acceptSubmissions,
+			s.id as sampleJudgeData_pk,problem_id,inputData,resultData
+		FROM 
+			OJ_PROBLEM p
+			LEFT OUTER JOIN OJ_SAMPLEJUDGEDATA s ON p.id = s.PROBLEM_ID
+		WHERE
+			p.id=#{id}
+	</select>
+	
+	<!-- public Problem getProblemWithActualJudgeData(Integer id); -->
+	<select id="getProblemWithActualJudgeData" parameterType="int" resultMap="ProblemWithActualJudgeDataResult">
+		SELECT 
+			p.id as problem_pk,title,description,inputFormat,outputFormat,
+			timeLimit, memoryLimit, totalSubmissions,acceptSubmissions,
+			a.id as actualJudgeData_pk,problem_id,inputData,resultData
+		FROM 
+			OJ_PROBLEM p
+			LEFT OUTER JOIN OJ_ACTUALJUDGEDATA a ON p.id = a.PROBLEM_ID
+		WHERE
+			p.id=#{id}
+	</select>
+	
+	<!-- public Problem getProblemWithJudgeData(Integer id); -->
+	
+	<!-- public List<Problem> getProblems(); -->
+	<select id="getProblems" resultMap="BaseProblemResult">
+		SELECT 
+			id as problem_pk,title,description,inputFormat,outputFormat,
+			timeLimit, memoryLimit, totalSubmissions,acceptSubmissions
+		FROM 
+			OJ_PROBLEM
+	</select>
+	
+	<!-- public List<Problem> getProblems(Map<String,Object> map); -->
+	
+	<!-- public void addProblem(Problem problem); -->
+	<insert id="addProblem" parameterType="Problem">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			SELECT SEQ_OJ_PROBLEM.NEXTVAL FROM DUAL
+		</selectKey>
+		insert into OJ_PROBLEM(id,title,description,inputFormat,outputFormat,
+			timeLimit, memoryLimit, totalSubmissions,acceptSubmissions)
+		values(#{id}, #{title}, #{description},
+			#{inputFormat}, #{outputFormat},
+			#{timeLimit}, #{memoryLimit}, 
+			#{totalSubmissions}, #{acceptSubmissions}
+		)
+	</insert>
+	
+	<!-- public void removeProblem(Integer id); -->
+	
+	<!-- public void updataProblem(Integer id, Map<String,Object> map); -->
+
+	<!-- public void updateTotalSubmissions(Integer id); -->
+	<update id="updateTotalSubmissions" parameterType="Integer">
+		UPDATE OJ_PROBLEM
+		SET totalSubmissions = totalSubmissions + 1
+		WHERE id=#{id}
+	</update>
+	
+	<!-- public void updateAcceptSubmissions(Integer id); -->
+	<update id="updateAcceptSubmissions" parameterType="Integer">
+		UPDATE OJ_PROBLEM
+		SET acceptSubmissions = acceptSubmissions + 1
+		WHERE id=#{id}
+	</update>
+</mapper>
